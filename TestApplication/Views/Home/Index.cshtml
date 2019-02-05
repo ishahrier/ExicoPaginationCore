@@ -1,0 +1,13 @@
+﻿ @inject IPagingConfig config
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Hello</h1>
+<p>
+    @Html.RenderPagination(100, 20,new DefaultPaginationConfig()
+{
+    HideNextOnLastPage = true,
+    HidePrevOnFirstPage = true
+})
+</p>
