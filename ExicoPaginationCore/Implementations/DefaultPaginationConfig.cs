@@ -1,5 +1,9 @@
 ﻿namespace ExicoPaginationCore
 {
+    /// <summary>
+    /// For documentation on the configuration please 
+    /// refer to the <see cref="IPagingConfig"/>
+    /// </summary>
     public class DefaultPaginationConfig : IPagingConfig
     {
         public bool DoNotRenderForOnePage { get; set; } = true;
