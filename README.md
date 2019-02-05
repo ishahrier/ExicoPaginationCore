@@ -52,5 +52,6 @@ A pagination for aspnet core applications. Easily create paginations for your ta
 
 
 
+
 There is a fully working demo project included , check it out [TestApplication.csproj](https://github.co!m/ishahrier/ExicoPaginationCore/tree/master/TestApplication) !
 ![screenshot](https://github.com/ishahrier/ExicoPaginationCore/raw/master/screenshot.png)
