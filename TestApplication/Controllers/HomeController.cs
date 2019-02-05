@@ -1,44 +1,63 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using TestApplication.Models;
 
 namespace TestApplication.Controllers
 {
+    public class SearchOptions
+    {
+        public int page { get; set; }
+        public int GreaterThan {get;set;}
+
+    }
+
+    public class Employee
+    {
+        public int Age;
+        public string Name;
+    }
+
+
+
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {            
-            
-            return View();
-        }
+        private List<Employee> Employees = new List<Employee>();
+        private readonly int ItemsPerPage = 20;
 
-        public IActionResult About()
+        public HomeController()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            BuildDatabase(100);
         }
 
-        public IActionResult Contact()
+        private void BuildDatabase(int toalRecords)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            for (int i = 0; i < toalRecords; i++)
+            {
+                Employees.Add(new Employee()
+                {
+                    Name = "Name " + i,
+                    Age = i
+                });
+            }
         }
 
-        public IActionResult Privacy()
+        public IActionResult Index([FromQuery]SearchOptions options)
         {
-            return View();
+            List<Employee> result = new List<Employee>();
+            result = Employees.Where(x => x.Age > options.GreaterThan)
+                                 .Skip(((options.page==0 ? 1 : options.page)-1) * ItemsPerPage)
+                                 .Take(ItemsPerPage)
+                                 .ToList();
+            int totalCount = Employees.Where(x => x.Age > options.GreaterThan)
+                                      .Count();
+
+            ViewBag.Result = result;            
+            ViewBag.TotalCount = totalCount;
+            ViewBag.ItemsPerPage = ItemsPerPage;
+
+
+            return View(result);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

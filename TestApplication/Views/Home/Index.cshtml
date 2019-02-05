@@ -1,13 +1,23 @@
-﻿ @inject IPagingConfig config
+﻿@model List<TestApplication.Controllers.Employee>
+@inject IPagingConfig config
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Hello</h1>
+<h1>Search Result</h1>
+<table class="table table-hover table-striped">
+    <tr>
+        <td>Name</td>
+        <td>Age</td>
+    </tr>
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.Name</td>
+            <td>@e.Age</td>
+        </tr>
+    }
+</table>
 <p>
-    @Html.RenderPagination(100, 20,new DefaultPaginationConfig()
-{
-    HideNextOnLastPage = true,
-    HidePrevOnFirstPage = true
-})
+    @Html.RenderPagination((int)ViewBag.TotalCount, (int)ViewBag.ItemsPerPage, config)
 </p>
