@@ -1,7 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>ExicoPaginationCore</PackageId>
+    <Description>Renders pagination in aspnet core projects (https://github.com/ishahrier/ExicoPaginationCore)</Description>
     <Version>1.0.0</Version>    
+    <Copyright>Exico Software Solutions</Copyright>
+    <WebPage>https://github.com/ishahrier/ExicoPaginationCore</WebPage>
+    <Title>ExicoPaginationCore</Title>
     <Authors>Md Ishtiaque Shahrier</Authors>
     <Company>Exico Software Solutions</Company>
     <TargetFramework>netcoreapp2.1</TargetFramework>

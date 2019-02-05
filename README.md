@@ -3,7 +3,9 @@ A pagination for aspnet core applications. Easily create paginations for your ta
 
 ## How to use
 
-1. In your **Startup.cs** add the pagination
+1. Install from nuget `Install-Package ExicoPaginationCore -Version 1.0.0`
+
+2. In your **Startup.cs** add the pagination
 
    ```c#
    public void ConfigureServices(IServiceCollection services)
@@ -12,11 +14,11 @@ A pagination for aspnet core applications. Easily create paginations for your ta
    }
    ```
 
-2. Now import the namespace in your **_ViewImports.cshtml** by adding this following line
+3. Now import the namespace in your **_ViewImports.cshtml** by adding this following line
 
    `@using ExicoPaginationCore` 
 
-3. Then in your view file use this extension method to render pagination
+4. Then in your view file use this extension method to render pagination
 
    ` @Html.RenderPagination()` 
 
