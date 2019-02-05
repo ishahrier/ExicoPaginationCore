@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExicoPaginationCore\ExicoPaginationCore\ExicoPaginationCore.csproj" />
+    <ProjectReference Include="..\ExicoPaginationCore\ExicoPaginationCore.csproj" />
   </ItemGroup>
 
 </Project>
