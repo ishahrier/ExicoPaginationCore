@@ -41,10 +41,10 @@ A pagination for aspnet core applications. Easily create paginations for your ta
       You can also create and object of  **DefaultPaginationConfig** , customize it and pass it as param.
 
       ```c#
-@Html.RenderPagination((int)ViewBag.TotalCount, (int)ViewBag.ItemsPerPage, new DefaultPaginationConfig()
+      @Html.RenderPagination((int)ViewBag.TotalCount,(int)ViewBag.ItemsPerPage, new DefaultPaginationConfig()
       {
-         HideNextOnLastPage = true,
-          HidePrevOnFirstPage = true
+      HideNextOnLastPage = true,
+      HidePrevOnFirstPage = true
       });
       ```
 
