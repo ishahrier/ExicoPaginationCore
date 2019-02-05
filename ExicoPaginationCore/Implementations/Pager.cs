@@ -26,7 +26,7 @@ namespace ExicoPaginationCore
 
         public int TotalItems { get; set; }
 
-        public int TotalPages => (TotalItems / ItemsPerPage) + (TotalItems % ItemsPerPage);
+        public int TotalPages => (TotalItems / ItemsPerPage) + ((TotalItems % ItemsPerPage) > 0 ? 1 : 0);
 
         public IHtmlContent RenderPagination(int total, int perPage,IPagingConfig config)
         {
