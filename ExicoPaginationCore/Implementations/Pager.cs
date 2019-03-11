@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Razor.Language;
 
 namespace ExicoPaginationCore
 {
@@ -30,6 +31,7 @@ namespace ExicoPaginationCore
 
         public IHtmlContent RenderPagination(int total, int perPage,IPagingConfig config)
         {
+            if (config.DoNotRenderForOnePage && total <= perPage) return new HtmlString(string.Empty);
             TotalItems = total;
             ItemsPerPage = perPage;
             StringBuilder sb = new StringBuilder();

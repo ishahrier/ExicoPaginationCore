@@ -26,12 +26,12 @@ namespace TestApplication.Controllers
 
         public HomeController()
         {
-            BuildDatabase(100);
+            BuildDatabase(21);
         }
 
         private void BuildDatabase(int toalRecords)
         {
-            for (int i = 0; i < toalRecords; i++)
+            for (int i = 1; i <= toalRecords; i++)
             {
                 Employees.Add(new Employee()
                 {
